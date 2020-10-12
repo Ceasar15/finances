@@ -3,8 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="8fb4824b-a642-468d-bf55-b9fc8ed3e21c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pipfile" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pipfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youth/templates/youth/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/youth/templates/youth/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/finances/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/finances/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/finances/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/finances/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/upload/LUKU4420_1.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/newsletter/templates/newsletter/subscription_subscribe.html" beforeDir="false" afterPath="$PROJECT_DIR$/newsletter/templates/newsletter/subscription_subscribe.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/newsletter/templates/newsletter/subscription_update.html" beforeDir="false" afterPath="$PROJECT_DIR$/newsletter/templates/newsletter/subscription_update.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/youth/templates/youth/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/youth/templates/youth/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/youth/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/youth/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +67,7 @@
       <updated>1602472125782</updated>
       <workItem from="1602472138062" duration="1688000" />
       <workItem from="1602501709379" duration="1402000" />
-      <workItem from="1602508813336" duration="2174000" />
+      <workItem from="1602508813336" duration="4430000" />
     </task>
     <servers />
   </component>

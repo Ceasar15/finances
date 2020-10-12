@@ -20,6 +20,7 @@ pip = "*"
 python-dotenv = "*"
 Pipfile = "*"
 psycopg2-binary = "*"
+django-cleanup = "*"
 
 [dev-packages]
 

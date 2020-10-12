@@ -15,5 +15,4 @@ urlpatterns = [
     path('events/', views.events, name='events'),
     path('sermons/', views.sermons, name='sermons'),
     path('services/', views.services, name='services'),
-    url(r'^newsletter/', include('newsletter.urls')),
 ]

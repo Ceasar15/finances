@@ -39,8 +39,11 @@ INSTALLED_APPS = [
     'accounts',
     'bootstrap4',
     'youth',
+
     'sorl.thumbnail',
     'newsletter',
+
+    'django_cleanup.apps.CleanupConfig',
 ]
 
 MIDDLEWARE = [
@@ -148,12 +151,12 @@ LOGIN_REDIRECT_URL = "accounts:dashboard"
 LOGOUT_REDIRECT_URL = "accounts:dashboard"
 
 # Email settings
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.googlemail.com'
 EMAIL_USE_TLS = True
-EMAIL_PORT = 25
-EMAIL_HOST = "localhost"
-EMAIL_FILE_PATH = '/finances/finances/email.txt'
-
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'ceasarkwadwo@gmail.com'
+EMAIL_HOST_PASSWORD = 'ablorhrahma'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # django.contrib.sites settings
 SITE_ID = 1 
@@ -166,3 +169,14 @@ options.pop('sslmode', None)
 
 
 #DATABASE_URL = os.environ['DATABASE_URL'] 
+
+NEWSLETTER_CONFIRM_EMAIL = False
+
+# Amount of seconds to wait between each email. Here 100ms is used.
+NEWSLETTER_EMAIL_DELAY = 0.1
+
+# Amount of seconds to wait between each batch. Here one minute is used.
+NEWSLETTER_BATCH_DELAY = 60
+
+# Number of emails in one batch
+NEWSLETTER_BATCH_SIZE = 100

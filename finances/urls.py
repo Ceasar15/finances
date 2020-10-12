@@ -11,6 +11,7 @@ urlpatterns = [
     path('', youth.views.index, name='home'),
     path('youth/', include("youth.urls")),
     path('accounts/', include("accounts.urls")),
+    path('newsletter/', include('newsletter.urls')),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
