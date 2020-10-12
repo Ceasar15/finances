@@ -1,0 +1,98 @@
+{% extends "accounts/base.html" %}
+{% load static %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url({% static 'images/back.jpg' %});">
+			<div class="wrap-login100 p-t-190 p-b-30">
+    				<span class="login100-form-title p-t-20 p-b-45">Register Here!</span>
+
+                        <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {% if messages %}
+                            <ul>
+                                {% for message in messages %}
+                                <li>{{ message }}</li>
+                                {% endfor %}
+                            </ul>
+                            {% endif %}
+
+                            <div style="text-align:center;" class="wrap-input100 validate-input m-b-10">
+                                    <i class="fa fa-user"></i>
+                                    <label for="id_username">Username</label>
+                                    <input class="input100" id="id_username" name="username" type="text" placeholder="Username" required>
+                                    <span class="focus-input100"></span>
+						            <span class="symbol-input100"></span>
+                        
+					        </div>
+                            
+                            <div style="text-align:center;" class="wrap-input100 validate-input m-b-10">
+
+                                    <i class="fa fa-user-plus"></i>
+                                    <label for="id_first_name">First Name</label>
+                                    <input class="input100" id="id_first_name" name="first_name" type="text" placeholder="First Name" required>
+                                    <span class="focus-input100"></span>
+						            <span class="symbol-input100"></span>
+                                
+                            </div>    
+
+                            <div style="text-align:center;" class="wrap-input100 validate-input m-b-10">
+                           
+                                    <i class="fa fa-user-plus"></i>
+                                    <label for="id_last_name">Last Name</label>
+                                    <input class="input100" id="id_last_name" name="last_name" type="text" placeholder="Last Name" required>
+                                    <span class="focus-input100"></span>
+						            <span class="symbol-input100"></span>
+                               
+                            </div>
+
+                            <div style="text-align:center;" class="wrap-input100 validate-input m-b-10">
+                               
+                                    <i class="fa fa-envelope"></i>
+                                    <label for="id_email">Email</label>
+                                    <input class="input100" id="id_email" name="email" type="email" placeholder="Email Name" required>
+                                    <span class="focus-input100"></span>
+						            <span class="symbol-input100"></span>
+                                
+                            </div>
+
+                            <div style="text-align:center;" class="wrap-input100 validate-input m-b-10">
+                           
+                                    <i class="fa fa-lock"></i>
+                                    <label for="id_password1">Password</label>
+                                    <input class="input100" id="id_password1" name="password1" type="password" placeholder="Password" required>
+                                    <span class="focus-input100"></span>
+						            <span class="symbol-input100"></span>
+                              
+                            </div>
+
+                            <div style="text-align:center;" class="wrap-input100 validate-input m-b-10">
+
+                                    <i class="fa fa-lock"></i>
+                                    <label for="id_password2">Confirm Password</label>
+                                    <input class="input100" id="id_password2" name="password2" type="password" placeholder="Confirm Password" required>
+                                    <span class="focus-input100"></span>
+						            <span class="symbol-input100"></span>
+                                
+                            </div>
+
+                            <div class="container-login100-form-btn p-t-10">
+                                <button class="login100-form-btn" type="submit" >Register</button>
+                            </div>
+                            
+                            <div class="text-center w-full p-t-25 p-b-230">
+						        <a href="{% url 'accounts:login' %}" class="txt1">
+							    Login<br></a>
+						        <a href="{% url 'youth:index' %}" class="txt1">
+							    Home</a>
+					        </div>
+                        </form>
+                    </div>
+            </div>
+        </div> 
+    </div>                   
+
+{% endblock body%}
