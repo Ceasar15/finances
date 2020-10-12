@@ -50,7 +50,7 @@ def profile(request):
 	return render(request, 'accounts/profile.html', context)
 
 
-
+@login_required
 def dashboard(request):
     return render(request, "accounts/dashboard.html")
 
