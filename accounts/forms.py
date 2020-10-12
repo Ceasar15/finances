@@ -46,7 +46,7 @@ class UserProfileForm(forms.ModelForm):
             'profile_pic',
             'phone',
         )
-
+    
     def clean_phone(self):
         phone = self.cleaned_data['phone']
         return phone

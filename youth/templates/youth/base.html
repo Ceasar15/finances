@@ -55,7 +55,7 @@
 	          <li class="nav-item"><a href="{% url 'accounts:register' %}" class="nav-link">Sign Up</a></li>
             {% endif %}
             <li class="nav-item"><a href="{% url 'youth:index' %}" class="nav-link">Hello, {{ user.username|default:'Guest' }}!</a></li>
-            <img class="img-xs rounded-circle" style="height: 50px;" src="{% static 'images/boy.jpg' %}" alt="Profile image">
+            <img class="img-xs rounded-circle nav-item" style="height: 50px; width: 50px;" src="/media/{{ user.profile.profile_pic }}" onerror="this.src='error.jpg';this.onerror='';">
           </ul>
 	      </div>
 	    </div>

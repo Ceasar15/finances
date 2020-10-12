@@ -9,31 +9,47 @@ from .forms import CustomUserCreationForm, UserProfileForm
 def register(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
-        #profile_form = UserProfileForm(request.POST, request.FILES)
         if form.is_valid():
             new_user = form.save(commit=False)    
             new_user.save()
-
-            #profile_pic = profile_form.cleaned_data['profile_pic']
-           # profile_form.save()
 
             messages.success(request, "Your account has been created successfully")
             return render(request, 'accounts/register.html')
         else:
             context = {
             'form': form,
-         #   'profile_form': profile_form
         }
             return render(request, 'accounts/register.html', context)
  
     else:
         context = {
             'form': CustomUserCreationForm,
-          #  'profile_form': UserProfileForm 
         }
         
         return render(request, 'accounts/register.html', context)
     
+
+@login_required
+def profile(request):
+	if request.method == 'POST':
+		
+		p_form = UserProfileForm(request.POST, request.FILES, instance=request.user.profile)
+
+		if p_form.is_valid():
+			
+			p_form.save()
+			messages.success(request, f'Your Profile has been Updated Successfully')
+			return redirect('accounts:dashboard')
+	else:	
+		
+		p_form = UserProfileForm(instance=request.user.profile)
+		context = {
+			
+			'p_form': p_form
+		}
+	return render(request, 'accounts/profile.html', context)
+
+
 
 def dashboard(request):
     return render(request, "accounts/dashboard.html")
