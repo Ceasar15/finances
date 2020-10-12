@@ -19,6 +19,7 @@ pytz = "*"
 pip = "*"
 python-dotenv = "*"
 Pipfile = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 
