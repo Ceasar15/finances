@@ -59,4 +59,4 @@ def password_reset(request):
 
 def logout(request):
     lout(request)
-    return redirect('accounts:login')
+    return redirect('youth:index')
