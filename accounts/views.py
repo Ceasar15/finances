@@ -1,7 +1,11 @@
 from django.contrib.auth import authenticate, login as lin, logout as lout
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
+from django.conf import settings
 from django.contrib import messages
+from django.http import HttpResponse
+from pypaystack import Transaction
+
 
 from .forms import CustomUserCreationForm, UserProfileForm
 
@@ -60,3 +64,12 @@ def password_reset(request):
 def logout(request):
     lout(request)
     return redirect('youth:index')
+
+def verify(request, reference):
+    transaction = Transaction(settings.PAYSTACK_SECRET_KEY)
+    response = transaction.verify(reference)
+    if response[3]['status'] == 'success':
+        return render(request, 'donations.html')
+    else:
+        return HttpResponse('failed')
+

@@ -16,15 +16,177 @@
       </div>
 		</section>
 
-    <section class="ftco-section">
-      <div class="container">
-        <div class="row justify-content-center mb-5 pb-5">
-          <div class="col-md-6 text-center heading-section ftco-animate">
-            <span class="subheading">Fianacial Obligations</span>
-            <h2 class="mb-4">Charley, {{ user.first_name|default:'Guest' }}! Go and pay your dues, okay?</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor</p>
+          <div class="col-md-12 col-lg-8 mb-5">
+              <form action="" class="p-5 bg-white" method="post" >
+                <div class="row form-group">
+                    <div class="col-md-12 mb-3 mb-md-0">
+                        <label class="font-weight-bold" for="fullname">Full Name</label>
+                        <input type="text" id="fullname" name="fullname" class="form-control" placeholder="Full Name" required>
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col-md-12">
+                        <label class="font-weight-bold" for="email">Email</label>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="Email Address" required>
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col-md-12 mb-3 mb-md-0">
+                        <label class="font-weight-bold" for="mobile_number">Mobile Number</label>
+                        <input type="text" id="mobile_number" name="mobile_number" class="form-control" placeholder="Mobile Number" required>
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col-md-12 mb-3 mb-md-0">
+                        <label class="font-weight-bold" for="mobile_number">Type</label>
+                        <select id="type" name="type" class="form-control" required>
+                          <option value="volvo">Dues</option>
+                          <option value="saab">Welfare</option>
+                          <option value="opel">Special Contribution</option>
+                          <option value="audi">Donation</option>
+                        </select>
+                    </div>
+                </div>                
+
+                <div class="row form-group">
+                    <div class="col-md-12 mb-3 mb-md-0">
+                        <label class="font-weight-bold" for="amount">Amount</label>
+                        <input type="number" id="amount" name="amount" class="form-control" placeholder="Amount eg. 100" required>
+                    </div>
+                </div>
+                  <div class="row form-group">
+                    <div class="col-md-12">
+                        <script src="https://js.paystack.co/v1/inline.js"></script>
+                        <button  type="button" onclick="payWithPaystack()" class="btn btn-primary pill px-4 py-2"> Pay </button>
+                    </div>
+                  </div>
+              </form>
           </div>
-        </div>
-      </div>  
-    </section>
+
+	<div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100">
+          <h2 class="mb-4 text-center ">Charley, {{ user.first_name|default:'Guest' }}!Pay your dues, okay?</h2>
+				<div class="table100">
+					<table>
+						<thead>
+							<tr class="table100-head">
+								<th class="column1">Date</th>
+								<th class="column2">Receipt</th>
+								<th class="column3">Type</th>
+								<th class="column4">Amount</th>
+								<th class="column5">Paid</th>
+								<th class="column6">Total</th>
+							</tr>
+						</thead>
+						<tbody>
+								<tr>
+									<td class="column1">2017-09-29 01:22</td>
+									<td class="column2">200398</td>
+									<td class="column3">Dues</td>
+									<td class="column4">$999.00</td>
+									<td class="column5"><i class="icon-money" aria-hidden="true"></i></td>
+									<td class="column6">$999.00</td>
+								</tr>
+								<tr>
+									<td class="column1">2017-09-28 05:57</td>
+									<td class="column2">200397</td>
+									<td class="column3">Special Contribution</td>
+									<td class="column4">$756.00</td>
+									<td class="column5">X</td>
+									<td class="column6">$756.00</td>
+								</tr>
+								<tr>
+									<td class="column1">2017-09-26 05:57</td>
+									<td class="column2">200396</td>
+									<td class="column3">Dues</td>
+									<td class="column4">$22.00</td>
+									<td class="column5"><i class="icon-money" aria-hidden="true"></i></td>
+									<td class="column6">$44.00</td>
+								</tr>
+								<tr>
+									<td class="column1">2017-09-25 23:06</td>
+									<td class="column2">200392</td>
+									<td class="column3">Special Contribution</td>
+									<td class="column4">$10.00</td>
+									<td class="column5"><i class="icon-money" aria-hidden="true"></i></td>
+									<td class="column6">$30.00</td>
+								</tr>
+								<tr>
+									<td class="column1">2017-09-24 05:57</td>
+									<td class="column2">200391</td>
+									<td class="column3">Dues</td>
+									<td class="column4">$199.00</td>
+									<td class="column5">X</td>
+									<td class="column6">$1494.00</td>
+								</tr>
+								<tr>
+									<td class="column1">2017-09-23 05:57</td>
+									<td class="column2">200390</td>
+									<td class="column3">Special Contribution</td>
+									<td class="column4">$699.00</td>
+									<td class="column5"><i class="icon-money" aria-hidden="true"></i></td>
+									<td class="column6">$699.00</td>
+								</tr>
+                <tr>
+									<td class="column1">Outstanding Debt</td>
+									<td class="column2"></td>
+									<td class="column3">$40000</td>
+									<td class="column4">Amount Paid</td>
+									<td class="column5"></td>
+									<td class="column6">$1234</td>
+								</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+{% block scripts %}
+<script>
+  function payWithPaystack(){
+      var fullname = document.getElementById("fullname").value;
+      var email = document.getElementById("email").value;
+      var mobile_number = document.getElementById("mobile_number").value;
+      var amount = document.getElementById("amount").value;
+
+      var handler = PaystackPop.setup({
+        key: 'pk_test_0fd510a4184e96f32db112ae882c81a1621d1251',
+        email: email,
+        amount: amount * 100,
+        currency: "GHS",
+        ref: ''+Math.floor((Math.random() * 10000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+        metadata: {
+            custom_fields: [
+            {
+                display_name: "Name",
+                variable_name: "fullname",
+                value: fullname
+            },
+            {
+                display_name: "Mobile Number",
+                variable_name: "mobile_number",
+                value: mobile_number
+            }
+         ]
+      },
+      callback: function(response){
+        ref = response.reference
+        window.location ="{% url 'accounts:dashboard' %}";
+          alert('success. transaction ref is ' + response.reference);
+      },
+      onClose: function(){
+          alert('window closed');
+      }
+    });
+    handler.openIframe();
+  }
+</script>
+{% endblock scripts %}
+
 {% endblock body %}
