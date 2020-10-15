@@ -47,110 +47,54 @@
 			</div>
 		</section>
 
+
+
 		<section class="ftco-section">
       <div class="container">
         <div class="row">
+        {% for post in post_list %}
           <div class="col-md-4 ftco-animate">
-            <div class="blog-entry">
-              <a href="{% url 'youth:blog-single' %}" class="block-20" style="background-image: url({% static 'images/blog1.jpg' %});">
+            <div class="blog-entry " data-aos-delay="200">
+            
+              <a href="{% url 'youth:blog-single' post.slug %}" class="block-20" style="background-image: url({{ post.picture.url }});">
               </a>
               <div class="text p-4 d-block">
                 <div class="meta mb-3">
-                  <div><a href="#">Sept 14, 2020</a></div>
-                  <div><a href="#">Admin</a></div>
+                  <div><a href="#">{{ post.created_on }}</a></div>
+                  <div><a href="#">{{ post.author }} </a></div>
                   <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
                 </div>
-                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                  <h3 class="heading"><a href="#">{{ post.title }}</a></h3>
+                    <div class="comment-body">
+                      <p>{{ post.content|slice:":200"}}</p>
+                    </div> 
+                    <a href="{% url 'youth:blog-single' post.slug  %}" class="btn btn-primary">Read More &rarr;</a>              
               </div>
             </div>
           </div>
-          <div class="col-md-4 ftco-animate">
-            <div class="blog-entry" data-aos-delay="100">
-              <a href="{% url 'youth:blog-single' %}" class="block-20" style="background-image: url({% static 'images/blog2.jpg' %});">
-              </a>
-              <div class="text p-4">
-                <div class="meta mb-3">
-                  <div><a href="#">Sept 14, 2020</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                </div>
-                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 ftco-animate">
-            <div class="blog-entry" data-aos-delay="200">
-              <a href="{% url 'youth:blog-single' %}" class="block-20" style="background-image: url({% static 'images/blog3.jpg' %});">
-              </a>
-              <div class="text p-4">
-                <div class="meta mb-3">
-                  <div><a href="#">Sept 14, 2020</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                </div>
-                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 ftco-animate">
-            <div class="blog-entry">
-              <a href="{% url 'youth:blog-single' %}" class="block-20" style="background-image: url({% static 'images/blog2.jpg' %});">
-              </a>
-              <div class="text p-4 d-block">
-                <div class="meta mb-3">
-                  <div><a href="#">Sept 14, 2020</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                </div>
-                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 ftco-animate">
-            <div class="blog-entry" data-aos-delay="100">
-              <a href="{% url 'youth:blog-single' %}" class="block-20" style="background-image: url({% static 'images/blog3.jpg' %});">
-              </a>
-              <div class="text p-4">
-                <div class="meta mb-3">
-                  <div><a href="#">Sept 14, 2020</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                </div>
-                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 ftco-animate">
-            <div class="blog-entry" data-aos-delay="200">
-              <a href="{% url 'youth:blog-single' %}" class="block-20" style="background-image: url({% static 'images/blog1.jpg' %});">
-              </a>
-              <div class="text p-4">
-                <div class="meta mb-3">
-                  <div><a href="#">Sept 14, 2020</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                </div>
-                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row mt-5">
-          <div class="col text-center">
-            <div class="block-27">
-              <ul>
-                <li><a href="#">&lt;</a></li>
-                <li class="active"><span>1</span></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">&gt;</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        {% endfor %}
+
+        </div> 
       </div>
-    </section>
+      
+      <div class="row mt-5">
+      {% if is_paginated %}
+        <div class="col text-center">
+          <div class="block-27">
+            <ul>
+              {% if page_obj.has_previous %}
+                <li><a href="?page={{ page_obj.previous_page_number }}" class="btn btn-primary">&laquo;P </a></li>
+              {% endif %}
+              {% if page_obj.has_next %}
+                <li><a href="?page={{ page_obj.next_page_number }}" class="btn btn-primary">N&raquo;</a></li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+      {% endif %}
+      </div>
+
+  </section>
+
 
 {% endblock body %}

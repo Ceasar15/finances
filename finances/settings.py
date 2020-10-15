@@ -36,13 +36,16 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     
+    # third party apps
     'accounts',
     'bootstrap4',
     'youth',
 
+    # newsletter apps
     'sorl.thumbnail',
     'newsletter',
 
+    # cleanup old pics after user changes them
     'django_cleanup.apps.CleanupConfig',
 ]
 
@@ -81,15 +84,6 @@ WSGI_APPLICATION = 'finances.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         #'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, "db.sqlite3"),
-#         #'NAME': BASE_DIR/'db.sqlite3',
-        
-#     }
-# }
 
 # Heroku Database Config
 
@@ -151,13 +145,12 @@ LOGIN_REDIRECT_URL = "accounts:dashboard"
 LOGOUT_REDIRECT_URL = "youth:index"
 
 # Email settings
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'ceasarkwadwo@gmail.com'
 EMAIL_HOST_PASSWORD = 'ablorhrahma'
-
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = "ceasarkwadwo@gmail.com"
 
 # django.contrib.sites settings
 SITE_ID = 1 
@@ -169,8 +162,8 @@ options = DATABASES['default'].get('OPTIONS', {})
 options.pop('sslmode', None)
 
 
-#DATABASE_URL = os.environ['DATABASE_URL'] 
 
+# Dont confirm email before subscription
 NEWSLETTER_CONFIRM_EMAIL = False
 
 # Amount of seconds to wait between each email. Here 100ms is used.
@@ -183,6 +176,5 @@ NEWSLETTER_BATCH_DELAY = 60
 NEWSLETTER_BATCH_SIZE = 100
 
 # paystack keys
-
-PAYSTACK_PUBLIC_KEY='pk_test_0fd510a4184e96f32db112ae882c81a1621d1251',
-PAYSTACK_SECRET_KEY='sk_test_7007502ba3c626ec2894595d54c89c9c2e9b2496'
+PAYSTACK_PUBLIC_KEY='pk_test_c67af25f5c63f4500477a93ce4ca5221e5a758a3',
+PAYSTACK_SECRET_KEY='sk_test_179c54296313be479b21361328d7ac31316d1245'

@@ -1,4 +1,3 @@
-from os import name
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
@@ -9,6 +8,7 @@ import youth.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', youth.views.index, name='home'),
+    path('home/', youth.views.index),
     path('youth/', include("youth.urls")),
     path('accounts/', include("accounts.urls")),
     path('newsletter/', include('newsletter.urls')),

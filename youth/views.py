@@ -1,10 +1,10 @@
-from django.http import request
-from django.http.response import HttpResponseRedirect
+from django import template
+from django.db.models.query import QuerySet
 from django.shortcuts import render
 from django.contrib import messages
-from django.urls import reverse_lazy
-from django.template import RequestContext
+from django.views import generic
 
+from .models import Post
 from .models import Contact
 
 # Create your views here.
@@ -16,11 +16,15 @@ def index(request):
 def about(request):
     return render(request, "youth/about.html")
 
-def blog_single(request):
-    return render(request, "youth/blog-single.html")
+class BlogList(generic.ListView):
+    queryset = Post.objects.filter(status=1).order_by('-created_on')
+    template_name = "youth/blog.html"
+    paginate_by = 2
 
-def blog(request):
-    return render(request, "youth/blog.html")
+class BlogDetail(generic.DetailView):
+    model = Post
+    template_name = "youth/blog-single.html"
+
 
 def events(request):
     return render(request, "youth/events.html")

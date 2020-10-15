@@ -69,7 +69,7 @@
 	<div class="limiter">
 		<div class="container-table100">
 			<div class="wrap-table100">
-          <h2 class="mb-4 text-center ">Charley, {{ user.first_name|default:'Guest' }}!Pay your dues, okay?</h2>
+          <h2 class="mb-4 text-center ">Charley, {{ user.first_name|default:'Guest' }}! Pay your dues, okay?</h2>
 				<div class="table100">
 					<table>
 						<thead>
@@ -156,7 +156,7 @@
       var amount = document.getElementById("amount").value;
 
       var handler = PaystackPop.setup({
-        key: 'pk_test_0fd510a4184e96f32db112ae882c81a1621d1251',
+        key: 'pk_test_c67af25f5c63f4500477a93ce4ca5221e5a758a3',
         email: email,
         amount: amount * 100,
         currency: "GHS",
