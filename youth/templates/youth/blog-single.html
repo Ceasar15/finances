@@ -48,21 +48,19 @@
       <div class="container">
         <div class="row">
           <div class="col-md-8 ftco-animate">
-            <h2 class="mb-3">{% block title %}{{ object.title}}{% endblock title %}</h2>
+            <h2 class="mb-3">{% block title %}{{ post.title}}{% endblock title %}</h2>
             <p>{{ post.author }} | {{ post.created_on }}</p>
             <p>
-              <img src="{% static 'images/sing1.jpg' %}" alt="" class="img-fluid">
+              <img src="{{ post.picture.url }}" alt="" class="img-fluid">
             </p>
-            <p>{{ object.content }}</p>
-    
-            
+            <p>{{ post.content | safe}}</p>
             <div class="about-author d-flex p-5 bg-light">
               <div class="bio align-self-md-center mr-5">
-                <img src="{{ post.picture.url }}" alt="Image placeholder" class="img-fluid mb-4">
+                <img src="/media/{{ user.profile.profile_pic }}" onerror="this.src='{% static 'images/iconn.jpg' %}'; this.onerror='';" class="img-fluid mb-4">
               </div>
               <div class="desc align-self-md-center">
                 <h3>{{ post.author }}</h3>
-                <p> Admin's bio </p>
+                <p> Admin's Bio </p>
               </div>
             </div>
 
