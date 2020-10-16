@@ -16,16 +16,6 @@ def index(request):
 def about(request):
     return render(request, "youth/about.html")
 
-class BlogList(generic.ListView):
-    queryset = Post.objects.filter(status=1).order_by('-created_on')
-    template_name = "youth/blog.html"
-    paginate_by = 2
-
-class BlogDetail(generic.DetailView):
-    model = Post
-    template_name = "youth/blog-single.html"
-
-
 def events(request):
     return render(request, "youth/events.html")
 
@@ -47,10 +37,19 @@ def contact(request):
             contact.save()
 
             messages.success(request, "Thank you for reaching out to us.")
-            
-            #return HttpResponseRedirect('youth:index') 
+             
             return render(request, "youth/contact.html")
-            #return HttpResponseRedirect(reverse_lazy('index'))
+
     
     else:
         return render(request, "youth/contact.html")
+
+class BlogList(generic.ListView):
+    queryset = Post.objects.filter(status=1).order_by('-created_on')
+    template_name = "youth/blog.html"
+    paginate_by = 6
+
+class BlogDetail(generic.DetailView):
+    model = Post
+    template_name = "youth/blog-single.html"
+
