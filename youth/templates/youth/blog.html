@@ -10,7 +10,7 @@
 			<div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
           <div class="col-md-10 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
-            <p class="breadcrumbs mb-2" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="{% url 'youth:index' %}">Home</a></span> <span>Blog</span></p>
+            <p class="breadcrumbs mb-2" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="{% url 'youth:index' %}">Home</a></span> <span>Blog-Single</span></p>
             <h1 class="mb-3 mt-0 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Blog</h1>
           </div>
         </div>
@@ -66,7 +66,7 @@
                 </div>
                   <h3 class="heading"><a href="#">{{ post.title }}</a></h3>
                     <div class="comment-body">
-                      <p>{{ post.content|slice:":200"}}</p>
+                      <p><a href="{% url 'youth:blog-single' post.slug %}"></a>{{ post.content|slice:":200"}}</p>
                     </div> 
                     <a href="{% url 'youth:blog-single' post.slug  %}" class="btn btn-primary">Read More &rarr;</a>              
               </div>

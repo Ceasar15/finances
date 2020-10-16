@@ -7,7 +7,7 @@
 			<div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
           <div class="col-md-10 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
-            <p class="breadcrumbs mb-2" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="{% url 'youth:index' %}">Home</a></span> <span class="mr-2"><a href="blog.html">Blog</a></span> <span>Blog Single</span></p>
+            <p class="breadcrumbs mb-2" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="{% url 'youth:index' %}">Home</a></span> <span class="mr-2"><a href="{% url 'youth:blog' %}">Blog-Single</a></span>
             <h1 class="mb-3 mt-0 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Blog Single</h1>
           </div>
         </div>
@@ -132,10 +132,9 @@
             
             <div class="sidebar-box ftco-animate">
               <h3>Recent Blog</h3>
+              {% for post in  queryset %}
               <div class="block-21 mb-4 d-flex">
-                
                 <a class="blog-img mr-4" style="background-image: url({% static 'images/blog1.jpg' %});"></a>
-      
                 <div class="text">
                   <h3 class="heading"><a href="#">{{ post.title }}</a></h3>
                   <div class="meta">
@@ -145,31 +144,7 @@
                   </div>
                 </div>
               </div>
-
-
-              <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url({% static 'images/blog2.jpg' %});"></a>
-                <div class="text">
-                  <h3 class="heading"><a href="#">{{ post.title }}</a></h3>
-                  <div class="meta">
-                    <div><a href="#"><span class="icon-calendar"></span>{{ post.created_on }}</a></div>
-                    <div><a href="#"><span class="icon-person"></span> {{ post.author }}</a></div>
-                    <div><a href="#"><span class="icon-chat"></span>{{ comments.count }}</a></div>
-                  </div>
-                </div>
-              </div>
-              <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url({% static 'images/blog3.jpg' %});"></a>
-                <div class="text">
-                  <h3 class="heading"><a href="#">{{ post.title }}</a></h3>
-                  <div class="meta">
-                    <div><a href="#"><span class="icon-calendar"></span>{{ post.created_on }}</a></div>
-                    <div><a href="#"><span class="icon-person"></span> {{ post.author }}</a></div>
-                    <div><a href="#"><span class="icon-chat"></span>{{ comments.count }}</a></div>
-                  </div>
-                </div>
-              </div>
-            </div>
+              {% endfor %}
             
             <div class="sidebar-box ftco-animate">
               <h3>Tag Cloud</h3>
