@@ -14,5 +14,5 @@ urlpatterns = [
     path('sermons/', views.sermons, name='sermons'),
     path('services/', views.services, name='services'),
     path('blog/', views.BlogList.as_view(), name='blog'),
-    path('<slug:slug>/', views.BlogDetail.as_view(), name='blog-single'),
+    path('<slug:slug>/', views.blog_detail, name='blog-single'),
 ]  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
