@@ -1,5 +1,3 @@
-from django import template
-from django.db.models.query import QuerySet
 from django.shortcuts import render
 from django.contrib import messages
 from django.views import generic
@@ -47,7 +45,7 @@ def contact(request):
 class BlogList(generic.ListView):
     queryset = Post.objects.filter(status=1).order_by('-created_on')
     template_name = "youth/blog.html"
-    paginate_by = 6
+    paginate_by = 3
 
 class BlogDetail(generic.DetailView):
     model = Post
