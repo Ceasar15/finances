@@ -59,7 +59,6 @@ def profile(request):
 def dashboard(request):
     return render(request, "accounts/dashboard.html")
 
-@login_required
 def payment(request):
     if request == "POST":
         finance = FinanceForm(request.POST)

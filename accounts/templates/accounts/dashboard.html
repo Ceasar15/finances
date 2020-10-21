@@ -97,7 +97,7 @@
 									<td class="column3">Special Contribution</td>
 									<td class="column4">$756.00</td>
 									<td class="column5">X</td>
-									<td class="column6">$756.00</td>
+									<td class="column6">$0.00</td>
 								</tr>
 								<tr>
 									<td class="column1">2017-09-26 05:57</td>
@@ -121,7 +121,7 @@
 									<td class="column3">Dues</td>
 									<td class="column4">$199.00</td>
 									<td class="column5">X</td>
-									<td class="column6">$1494.00</td>
+									<td class="column6">$0.00</td>
 								</tr>
 								<tr>
 									<td class="column1">2017-09-23 05:57</td>
@@ -139,54 +139,13 @@
 									<td class="column5"></td>
 									<td class="column6">$1234</td>
 								</tr>
-						</tbody>
-					</table>
+						</tbody>                
+  				</table>
 				</div>
 			</div>
 		</div>
 	</div>
 
 
-{% comment %} {% block scripts %}
-<script>
-  function payWithPaystack(){
-      var fullname = document.getElementById("fullname").value;
-      var email = document.getElementById("email").value;
-      var mobile_number = document.getElementById("mobile_number").value;
-      var amount = document.getElementById("amount").value;
-
-      var handler = PaystackPop.setup({
-        key: 'pk_live_6fd88f7a7e79d8ce558178692fab1f5e37293c5f',
-        email: email,
-        amount: amount * 100,
-        currency: "GHS",
-        ref: ''+Math.floor((Math.random() * 10000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
-        metadata: {
-            custom_fields: [
-            {
-                display_name: "Name",
-                variable_name: "fullname",
-                value: fullname
-            },
-            {
-                display_name: "Mobile Number",
-                variable_name: "mobile_number",
-                value: mobile_number
-            }
-         ]
-      },
-      callback: function(response){
-        ref = response.reference
-        window.location ="{% url 'accounts:dashboard' %}";
-          alert('success. transaction ref is ' + response.reference);
-      },
-      onClose: function(){
-          alert('window closed');
-      }
-    });
-    handler.openIframe();
-  }
-</script>
-{% endblock scripts %} {% endcomment %}
 
 {% endblock body %}
