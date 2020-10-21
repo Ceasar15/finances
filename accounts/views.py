@@ -1,4 +1,5 @@
 from django.contrib.auth import authenticate, login as lin, logout as lout
+from django.http import request
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
@@ -7,7 +8,7 @@ from django.http import HttpResponse
 from pypaystack import Transaction
 
 
-from .forms import CustomUserCreationForm, UserProfileForm
+from .forms import CustomUserCreationForm, UserProfileForm, FinanceForm
 
 # register user
 def register(request):
@@ -57,6 +58,15 @@ def profile(request):
 @login_required
 def dashboard(request):
     return render(request, "accounts/dashboard.html")
+
+@login_required
+def payment(request):
+    if request == "POST":
+        finance = FinanceForm(request.POST)
+        if finance.is_valid():
+            finance.save()
+    
+    return render(request, "accounts/payment.html")
 
 def password_reset(request):
     return render(request, "accounts/password_reset_form.html")

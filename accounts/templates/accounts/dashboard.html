@@ -16,7 +16,7 @@
       </div>
 		</section>
 
-          <div class="col-md-12 col-lg-8 mb-5">
+          {% comment %} <div class="col-md-12 col-lg-8 mb-5">
               <form action="" class="p-5 bg-white" method="post" >
                 <div class="row form-group">
                     <div class="col-md-12 mb-3 mb-md-0">
@@ -41,12 +41,12 @@
 
                 <div class="row form-group">
                     <div class="col-md-12 mb-3 mb-md-0">
-                        <label class="font-weight-bold" for="mobile_number">Type</label>
+                        <label class="font-weight-bold" for="type">Type</label>
                         <select id="type" name="type" class="form-control" required>
-                          <option value="volvo">Dues</option>
-                          <option value="saab">Welfare</option>
-                          <option value="opel">Special Contribution</option>
-                          <option value="audi">Donation</option>
+                          <option value="dues" name="dues">Dues</option>
+                          <option value="welfare" name="welfare">Welfare</option>
+                          <option value="special" name="special">Special Contribution</option>
+                          <option value="donation" name="donation">Donation</option>
                         </select>
                     </div>
                 </div>                
@@ -60,16 +60,16 @@
                   <div class="row form-group">
                     <div class="col-md-12">
                         <script src="https://js.paystack.co/v1/inline.js"></script>
-                        <button  type="button" onclick="payWithPaystack()" class="btn btn-primary pill px-4 py-2"> Pay </button>
+                        <button  type="submit" onclick="payWithPaystack()" class="btn btn-primary pill px-4 py-2"> Pay </button>
                     </div>
                   </div>
               </form>
-          </div>
+          </div> {% endcomment %}
 
 	<div class="limiter">
 		<div class="container-table100">
 			<div class="wrap-table100">
-          <h2 class="mb-4 text-center ">Charley, {{ user.first_name|default:'Guest' }}! Pay your dues, okay?</h2>
+          <h2 class="mb-4 text-center ">Charley, {{ user.first_name|default:'Guest' }}! Pay your dues, okay?<a href="{% url 'accounts:payment' %}" class="btn btn-primary p-3">Make Payment</a></h2>
 				<div class="table100">
 					<table>
 						<thead>
@@ -147,7 +147,7 @@
 	</div>
 
 
-{% block scripts %}
+{% comment %} {% block scripts %}
 <script>
   function payWithPaystack(){
       var fullname = document.getElementById("fullname").value;
@@ -187,6 +187,6 @@
     handler.openIframe();
   }
 </script>
-{% endblock scripts %}
+{% endblock scripts %} {% endcomment %}
 
 {% endblock body %}

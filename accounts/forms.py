@@ -3,7 +3,7 @@ from django import forms
 from django.core.exceptions import ValidationError
 from django.core.files.images import get_image_dimensions
 from django.forms import fields
-from .models import Profile
+from .models import Profile, Finance
 
 
 class CustomUserCreationForm(forms.Form):
@@ -79,4 +79,14 @@ class UserProfileForm(forms.ModelForm):
             """
             pass
 
-        return profile_pic                 
+        return profile_pic  
+
+class FinanceForm(forms.ModelForm):
+    class Meta:
+        model = Finance
+        fields = (
+            'receipt',
+            'types',
+            'amount',
+        )
+

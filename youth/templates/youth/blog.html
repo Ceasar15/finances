@@ -60,11 +60,11 @@
               </a>
               <div class="text p-4 d-block">
                 <div class="meta mb-3">
-                  <div><a href="#">{{ post.created_on }}</a></div>
-                  <div><a href="#">{{ post.author }} </a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                  <div><a href="{% url 'youth:blog-single' post.slug %}">{{ post.created_on }}</a></div>
+                  <div><a href="{% url 'youth:blog-single' post.slug %}">{{ post.author }} </a></div>
+                  <div><a href="{% url 'youth:blog-single' post.slug %}" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
                 </div>
-                  <h3 class="heading"><a href="#">{{ post.title }}</a></h3>
+                  <h3 class="heading"><a href="{% url 'youth:blog-single' post.slug %}">{{ post.title }}</a></h3>
                     <div class="comment-body">
                       <p><a href="{% url 'youth:blog-single' post.slug %}"></a>{{ post.content|slice:":200"}}</p>
                     </div> 
