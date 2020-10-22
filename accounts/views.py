@@ -1,3 +1,4 @@
+from accounts.models import Payments
 from django.contrib.auth import authenticate, login as lin, logout as lout
 from django.http import request
 from django.shortcuts import redirect, render
@@ -8,7 +9,7 @@ from django.http import HttpResponse
 from pypaystack import Transaction
 
 
-from .forms import CustomUserCreationForm, UserProfileForm, FinanceForm
+from .forms import CustomUserCreationForm, UserProfileForm
 
 # register user
 def register(request):
@@ -60,12 +61,20 @@ def dashboard(request):
     return render(request, "accounts/dashboard.html")
 
 def payment(request):
-    if request == "POST":
-        finance = FinanceForm(request.POST)
-        if finance.is_valid():
-            finance.save()
+    if request.method == "POST":
+        print(request.POST)
+        if request.POST.get('fullname') and request.POST.get('email') and request.POST.get('mobile_number') and request.POST.get("amount"):
+            people = Payments()
+            people.fullname = request.POST.get('fullname')
+            people.email = request.POST.get('email')
+            people.mobile_number = request.POST.get('mobile_number')
+            people.types = request.POST.get('types')
+            people.amount = request.POST.get("amount")
+            people.save()
+            return render(request, "youth/sermons.html")
+    else:
+        return render(request, "accounts/payment.html")    
     
-    return render(request, "accounts/payment.html")
 
 def password_reset(request):
     return render(request, "accounts/password_reset_form.html")

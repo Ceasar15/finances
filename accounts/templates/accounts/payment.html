@@ -4,12 +4,12 @@
 {% block title %}Payment{% endblock %}
 
 {% block body %}
-
+          {% comment %} pk_live_6fd88f7a7e79d8ce558178692fab1f5e37293c5f {% endcomment %}
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url({% static 'images/back.jpg' %});">
 			<div class="wrap-login100 p-t-190 p-b-30">
     			<span class="login100-form-title p-t-20 p-b-45">Make Payments Here!</span> 
-                    <form method="post">       
+                    <form method="post" id="forms">       
                     {% csrf_token %}
                         <div style="text-align:center;" class="wrap-input100 validate-input m-b-10">
                             <i class="fa fa-user"></i>
@@ -54,7 +54,7 @@
                         
                         <div class="container-login100-form-btn p-t-10">
                             <script src="https://js.paystack.co/v1/inline.js"></script>
-                            <button class="login100-form-btn" type="button" onclick="payWithPaystack()" >Pay</button>
+                            <button class="login100-form-btn" type="submit" onclick="payWithPaystack()" >Pay</button>
                         </div>
                         <div class="text-center w-full p-t-25 p-b-230">
                             <a href="{% url 'youth:index' %}" class="txt1">Home<br></a>
@@ -75,7 +75,7 @@
       var amount = document.getElementById("amount").value;
 
       var handler = PaystackPop.setup({
-        key: 'pk_live_6fd88f7a7e79d8ce558178692fab1f5e37293c5f',
+        key: 'pk_test_c67af25f5c63f4500477a93ce4ca5221e5a758a3',
         email: email,
         amount: amount * 100,
         currency: "GHS",
@@ -97,10 +97,11 @@
       callback: function(response){
         ref = response.reference
         window.location ="{% url 'accounts:dashboard' %}";
-          alert('success. transaction ref is ' + response.reference);
+          alert('Transaction was successful. Reference: ' + response.reference);
+          document.getElementById("forms").button()
       },
       onClose: function(){
-          alert('window closed');
+          alert('Transaction Cancelled!');
       }
     });
     handler.openIframe();

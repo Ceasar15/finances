@@ -24,12 +24,12 @@ def create_profile(sender, instance, created, **kwargs):
 def save_profile(sender, instance, **kwargs):
         instance.profile.save()
     
-# class Choices(models.Model):
-#     choice = models.CharField(max_length=20, unique=True,)
-class Finance(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
+class Payments(models.Model):    
+    fullname= models.CharField(max_length=100, null=True)
+    email= models.EmailField(max_length=110, null=True)
+    mobile_number= models.CharField(null=True, max_length=15)
+    types= models.CharField(null=True, max_length=100, default="donations")
+    amount= models.IntegerField(null=True)
 
-    date = models.DateField(auto_created=True, null= True)
-    receipt = models.IntegerField(null=True, unique=True)
-    types = models.CharField(max_length=50, null=True)
-    amount = models.IntegerField(null=True)
+    def __str__(self):
+        return str(Payments)

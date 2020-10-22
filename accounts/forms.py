@@ -3,7 +3,7 @@ from django import forms
 from django.core.exceptions import ValidationError
 from django.core.files.images import get_image_dimensions
 from django.forms import fields
-from .models import Profile, Finance
+from .models import Profile, Payments
 
 
 class CustomUserCreationForm(forms.Form):
@@ -81,12 +81,5 @@ class UserProfileForm(forms.ModelForm):
 
         return profile_pic  
 
-class FinanceForm(forms.ModelForm):
-    class Meta:
-        model = Finance
-        fields = (
-            'receipt',
-            'types',
-            'amount',
-        )
-
+class PaymentsForm(forms.ModelForm):
+    model = Payments
