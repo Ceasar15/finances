@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8fb4824b-a642-468d-bf55-b9fc8ed3e21c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/finances.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/finances.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pipfile" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pipfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/finances/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/finances/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +36,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
@@ -79,6 +82,7 @@
       <workItem from="1603378874261" duration="4508000" />
       <workItem from="1603412588070" duration="919000" />
       <workItem from="1603413536040" duration="1134000" />
+      <workItem from="1603625974813" duration="1198000" />
     </task>
     <servers />
   </component>

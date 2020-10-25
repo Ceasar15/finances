@@ -126,31 +126,26 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_URL = '/static/'
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATIC_URL = '/static/'
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# Extra places for collectstatic to find static files.
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
+# # Extra places for collectstatic to find static files.
+# STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, 'static'),
+# )
 
-# Media storage
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+# # Media storage
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 # AUTH redirect settings
 LOGIN_REDIRECT_URL = "accounts:dashboard"
 LOGOUT_REDIRECT_URL = "youth:index"
 
 # Email settings
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'ceasarkwadwo@gmail.com'
-EMAIL_HOST_PASSWORD = 'ablorhrahma'
-EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = "ceasarkwadwo@gmail.com"
+
 
 # django.contrib.sites settings
 SITE_ID = 1 
@@ -180,3 +175,20 @@ PAYSTACK_PUBLIC_KEY='pk_test_c67af25f5c63f4500477a93ce4ca5221e5a758a3',
 PAYSTACK_SECRET_KEY='sk_test_179c54296313be479b21361328d7ac31316d1245'
 
 #SECURE_SSL_REDIRECT = True
+
+# Google Cloud Storage
+STATICFILES_DIRS = [
+    "/home/ceasar/Desktop/Dev/finances/accounts/static/",
+    "/home/ceasar/Desktop/Dev/finances/newsletter/static/",
+    "/home/ceasar/Desktop/Dev/finances/youth/static/",
+]
+DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+GS_BUCKET_NAME = 'youthchurch'
+STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+STATIC_URL = 'https://storage.googleapis.com/youthchurch/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+from google.oauth2 import service_account
+GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
+    '/home/ceasar/Downloads/youthchurch-293616-273cbcff4704.json' # see step 3
+)
