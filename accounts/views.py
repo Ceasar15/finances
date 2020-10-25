@@ -68,7 +68,7 @@ def payment(request):
             people.fullname = request.POST.get('fullname')
             people.email = request.POST.get('email')
             people.mobile_number = request.POST.get('mobile_number')
-            people.types = request.POST.get('types')
+            people.types = request.POST.get('type')
             people.amount = request.POST.get("amount")
             people.save()
             return render(request, "youth/sermons.html")

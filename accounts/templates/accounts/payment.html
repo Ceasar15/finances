@@ -4,7 +4,7 @@
 {% block title %}Payment{% endblock %}
 
 {% block body %}
-          {% comment %} pk_live_6fd88f7a7e79d8ce558178692fab1f5e37293c5f {% endcomment %}
+          <!-- {% comment %} pk_live_6fd88f7a7e79d8ce558178692fab1f5e37293c5f {% endcomment %} -->
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url({% static 'images/back.jpg' %});">
 			<div class="wrap-login100 p-t-190 p-b-30">
@@ -79,7 +79,7 @@
         email: email,
         amount: amount * 100,
         currency: "GHS",
-        ref: ''+Math.floor((Math.random() * 10000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+        ref: ''+Math.floor((Math.random() * 10000000000) + 1), 
         metadata: {
             custom_fields: [
             {
