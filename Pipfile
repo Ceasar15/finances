@@ -24,6 +24,7 @@ django-cleanup = "*"
 pypaystack = "*"
 google-cloud-storage = "*"
 django-storages = "*"
+django-bmemcached = "*"
 
 [dev-packages]
 

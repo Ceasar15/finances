@@ -3,7 +3,6 @@ import os
 import django_heroku
 import dj_database_url
 import dotenv
-import psycopg2
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 #BASE_DIR = Path(__file__).resolve().parent.parent
@@ -50,6 +49,10 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'django.middleware.cache.UpdateCacheMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',
+
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -59,6 +62,9 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+CACHE_MIDDLEWARE_ALIAS = 'default'
+CACHE_MIDDLEWARE_SECONDS = 604800 			
 
 ROOT_URLCONF = 'finances.urls'
 
@@ -126,19 +132,19 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-# STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static/'
 
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# # Extra places for collectstatic to find static files.
-# STATICFILES_DIRS = (
-#     os.path.join(BASE_DIR, 'static'),
-# )
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
-# # Media storage
-# MEDIA_URL = '/media/'
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+# Media storage
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 # AUTH redirect settings
 LOGIN_REDIRECT_URL = "accounts:dashboard"
@@ -177,18 +183,44 @@ PAYSTACK_SECRET_KEY='sk_test_179c54296313be479b21361328d7ac31316d1245'
 #SECURE_SSL_REDIRECT = True
 
 # Google Cloud Storage
-STATICFILES_DIRS = [
-    "/home/ceasar/Desktop/Dev/finances/accounts/static/",
-    "/home/ceasar/Desktop/Dev/finances/newsletter/static/",
-    "/home/ceasar/Desktop/Dev/finances/youth/static/",
-]
-DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
-GS_BUCKET_NAME = 'youthchurch'
-STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
-STATIC_URL = 'https://storage.googleapis.com/youthchurch/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATICFILES_DIRS = [
+#     "/home/ceasar/Desktop/Dev/finances/accounts/static/",
+#     "/home/ceasar/Desktop/Dev/finances/newsletter/static/",
+#     "/home/ceasar/Desktop/Dev/finances/youth/static/",
+# ]
+# DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+# GS_BUCKET_NAME = 'youthchurch'
+# STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+# STATIC_URL = 'https://storage.googleapis.com/youthchurch/'
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-from google.oauth2 import service_account
-GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
-    '/home/ceasar/Downloads/youthchurch-293616-273cbcff4704.json' # see step 3
-)
+# from google.oauth2 import service_account
+# GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
+#     '/home/ceasar/Downloads/youthchurch-293616-273cbcff4704.json' # see step 3
+# )
+
+# Cache Settings
+
+
+servers = 'mc5.dev.ec2.memcachier.com:11211'
+username = 'B70EC0'
+password = '7505F1A6662C0362207CC3ED4A55919E'
+
+CACHES = {
+    'default': {
+        # Use django-bmemcached
+        'BACKEND': 'django_bmemcached.memcached.BMemcached',
+
+        # TIMEOUT is not the connection timeout! It's the default expiration
+        # timeout that should be applied to keys! Setting it to `None`
+        # disables expiration.
+        'TIMEOUT': None,
+
+        'LOCATION': servers,
+
+        'OPTIONS': {
+            'username': username,
+            'password': password,
+        }
+    }
+}
