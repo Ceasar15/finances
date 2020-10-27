@@ -83,14 +83,16 @@
 							</tr>
 						</thead>
 						<tbody>
+							{% for pay in queryset %}
 								<tr>
 									<td class="column1">2017-09-29 01:22</td>
-									<td class="column2">200398</td>
+									<td class="column2">{{ pay.fullname }}</td>
 									<td class="column3">Dues</td>
 									<td class="column4">$999.00</td>
 									<td class="column5"><i class="icon-money" aria-hidden="true"></i></td>
 									<td class="column6">$999.00</td>
 								</tr>
+							{% endfor %}	
 								<tr>
 									<td class="column1">2017-09-28 05:57</td>
 									<td class="column2">200397</td>
@@ -131,7 +133,7 @@
 									<td class="column5"><i class="icon-money" aria-hidden="true"></i></td>
 									<td class="column6">$699.00</td>
 								</tr>
-                <tr>
+           				    	<tr>
 									<td class="column1">Outstanding Debt</td>
 									<td class="column2"></td>
 									<td class="column3">$40000</td>

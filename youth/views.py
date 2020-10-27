@@ -2,7 +2,6 @@ from django.http import request
 from django.shortcuts import get_object_or_404, render
 from django.contrib import messages
 from django.views import generic
-#from django.core.paginator import Paginator
 
 from .models import Post
 from .models import Contact
@@ -53,8 +52,6 @@ class BlogList(generic.ListView):
 
 def blog_detail(request, slug):
     queryset = Post.objects.filter(status=1).order_by('-created_on')
-    # paginator = Paginator(queryset, 3)
-    # page = request.GET.get('page')
     template_name = "youth/blog-single.html"
     post = get_object_or_404(Post, slug=slug)
     comments = post.comments.filter(active=True).order_by("created_on")
@@ -76,7 +73,6 @@ def blog_detail(request, slug):
         'new_comment': new_comment,
         'comment_form': comment_form,
         'queryset': queryset,
-        # 'page': page
     }
 
     return render(request, template_name, content)

@@ -32,4 +32,4 @@ class Payments(models.Model):
     amount= models.IntegerField(null=True)
 
     def __str__(self):
-        return str(Payments)
+        return str(self.fullname)

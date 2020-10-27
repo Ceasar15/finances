@@ -58,7 +58,13 @@ def profile(request):
 
 @login_required
 def dashboard(request):
-    return render(request, "accounts/dashboard.html")
+    queryset = Payments.objects.all()
+
+    content = {
+        'queryset': queryset,
+    }
+    
+    return render(request, "accounts/dashboard.html", content)
 
 def payment(request):
     if request.method == "POST":
