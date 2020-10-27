@@ -24,7 +24,8 @@ def create_profile(sender, instance, created, **kwargs):
 def save_profile(sender, instance, **kwargs):
         instance.profile.save()
     
-class Payments(models.Model):    
+class Payments(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)    
     fullname= models.CharField(max_length=100, null=True)
     email= models.EmailField(max_length=110, null=True)
     mobile_number= models.CharField(null=True, max_length=15)
