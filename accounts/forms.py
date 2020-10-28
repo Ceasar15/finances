@@ -2,7 +2,6 @@ from django.contrib.auth.models import User
 from django import forms
 from django.core.exceptions import ValidationError
 from django.core.files.images import get_image_dimensions
-from django.forms import fields
 from .models import Profile, Payments
 
 
@@ -83,3 +82,26 @@ class UserProfileForm(forms.ModelForm):
 
 class PaymentsForm(forms.ModelForm):
     model = Payments
+    fields = (
+            'fullname',
+            'email',
+            'mobile_number',
+            'type',
+            'amount',
+        )
+
+    def clean_phone(self):
+        fullname = self.cleaned_data['fullname']
+        return fullname
+    def clean_email(self):
+        email = self.cleaned_data['email']
+        return email
+    def clean_mobile_number(self):
+        mobile_number = self.cleaned_data['mobile_number']
+        return mobile_number
+    def clean_type(self):
+        types = self.cleaned_data['types']
+        return types
+    def clean_amount(self):
+        amount = self.cleaned_data['amount']
+        return amount

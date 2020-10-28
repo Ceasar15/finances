@@ -9,9 +9,10 @@ from django.http import HttpResponse
 from pypaystack import Transaction
 
 
-from .forms import CustomUserCreationForm, UserProfileForm
+from .forms import CustomUserCreationForm, PaymentsForm, UserProfileForm
 
 # register user
+
 def register(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
@@ -37,24 +38,19 @@ def register(request):
 
 @login_required
 def profile(request):
-	if request.method == 'POST':
-		
-		p_form = UserProfileForm(request.POST, request.FILES, instance=request.user.profile)
-
-		if p_form.is_valid():
-			
-			p_form.save()
-			messages.success(request, f'Your Profile has been Updated Successfully')
-			return redirect('accounts:dashboard')
-	else:	
-		
-		p_form = UserProfileForm(instance=request.user.profile)
-		context = {
-			
-			'p_form': p_form
-		}
-	return render(request, 'accounts/profile.html', context)
-
+    if request.method == 'POST':
+        p_form = UserProfileForm(request.POST, request.FILES, instance=request.user.profile)
+        
+        if p_form.is_valid():
+            p_form.save()
+            messages.success(request, f'Your Profile has been Updated Successfully')
+            return redirect('accounts:dashboard')
+    else:
+        p_form=UserProfileForm(instance=request.user.profile)
+        context={
+            'p_form': p_form
+            }
+    return render(request, "accounts/profile.html", context)
 
 @login_required
 def dashboard(request):
@@ -67,19 +63,38 @@ def dashboard(request):
     return render(request, "accounts/dashboard.html", content)
 
 def payment(request):
-    if request.method == "POST":
-        print(request.POST)
-        if request.POST.get('fullname') and request.POST.get('email') and request.POST.get('mobile_number') and request.POST.get("amount"):
-            people = Payments()
-            people.fullname = request.POST.get('fullname')
-            people.email = request.POST.get('email')
-            people.mobile_number = request.POST.get('mobile_number')
-            people.types = request.POST.get('type')
-            people.amount = request.POST.get("amount")
-            people.save()
-            return render(request, "youth/sermons.html")
+    if request.method == 'POST':
+        pay_form = PaymentsForm(request.POST, request.FILES, instance=request.user.payments)
+
+        if pay_form.is_valid():
+
+            pay_form.save()
+            return redirect('youth:sermons')
+
     else:
-        return render(request, "accounts/payment.html")    
+        pay_form = PaymentsForm(instance=request.user.payments)
+        date = Payments.scheduled_at.date()
+        content = {
+            'pay_form': pay_form,
+            'date': date,
+        }
+        return render(request, "accounts/payment.html", content)
+
+
+# def payment(request):
+#     if request.method == "POST":
+#         print(request.POST)
+#         if request.POST.get('fullname') and request.POST.get('email') and request.POST.get('mobile_number') and request.POST.get("amount"):
+#             people = Payments()
+#             people.fullname = request.POST.get('fullname')
+#             people.email = request.POST.get('email')
+#             people.mobile_number = request.POST.get('mobile_number')
+#             people.types = request.POST.get('type')
+#             people.amount = request.POST.get("amount")
+#             people.save()
+#             return render(request, "youth/sermons.html")
+#     else:
+#         return render(request, "accounts/payment.html")    
     
 
 def password_reset(request):
