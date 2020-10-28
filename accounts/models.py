@@ -32,10 +32,7 @@ class Payments(models.Model):
     types= models.CharField(null=True, max_length=100)
     amount= models.IntegerField(null=True)
     created_on = models.DateTimeField(auto_now_add=True, null=True, blank=True)
-
-    class Meta:
-        ordering = ['-created_on']
-
+    
     def __str__(self):
         return str(self.fullname)
 

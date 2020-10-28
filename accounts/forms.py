@@ -3,7 +3,7 @@ from django import forms
 from django.core.exceptions import ValidationError
 from django.core.files.images import get_image_dimensions
 from .models import Profile, Payments
-
+from django.forms import ModelForm
 
 class CustomUserCreationForm(forms.Form):
     username = forms.CharField(label='Username', min_length=4, max_length=150)
@@ -80,15 +80,18 @@ class UserProfileForm(forms.ModelForm):
 
         return profile_pic  
 
-class PaymentsForm(forms.ModelForm):
-    model = Payments
-    fields = (
+class PaymentsForm(ModelForm):
+    class Meta:
+        model = Payments
+        fields = (
             'fullname',
             'email',
             'mobile_number',
-            'type',
-            'amount',
+            'types',
+            'amount'
         )
+        ordering = ['-created_on']
+
 
     def clean_phone(self):
         fullname = self.cleaned_data['fullname']

@@ -64,21 +64,22 @@ def dashboard(request):
 
 def payment(request):
     if request.method == 'POST':
-        pay_form = PaymentsForm(request.POST, request.FILES, instance=request.user.payments)
+        print(request.POST)
+        pay_form = PaymentsForm(request.POST, request.FILES, instance=request.user.profile)
 
         if pay_form.is_valid():
 
             pay_form.save()
-            return redirect('youth:sermons')
+            return render(request, 'youth:sermons')
 
     else:
-        pay_form = PaymentsForm(instance=request.user.payments)
-        date = Payments.scheduled_at.date()
-        content = {
-            'pay_form': pay_form,
-            'date': date,
-        }
-        return render(request, "accounts/payment.html", content)
+        # pay_form = PaymentsForm()
+        # date = Payments.scheduled_at.date()
+        # content = {
+        #     'pay_form': pay_form,
+        #     'date': date,
+        # }
+        return render(request, "accounts/payment.html")
 
 
 # def payment(request):
