@@ -55,13 +55,8 @@ def profile(request):
 
 @login_required
 def dashboard(request):
-    queryset = Payments.objects.all()
-
-    content = {
-        'queryset': queryset,
-    }
-    
-    return render(request, "accounts/dashboard.html", content)
+    queryset = Payments.objects.all()    
+    return render(request, "accounts/dashboard.html", {'queryset': queryset})
 
 
 @login_required
@@ -72,35 +67,13 @@ def payment(request):
 
         if pay_form.is_valid():
             obj = pay_form.save(commit=False)
-            obj.user = request.user;
+            obj.user = request.user
             obj.save()
             messages.success(request, f'Your Profile has been Updated Successfully')
             return render(request, 'accounts/dashboard.html')
     else:
-        # pay_form = PaymentsForm()
-        # date = Payments.scheduled_at.date()
-        # content = {
-        #     'pay_form': pay_form,
-        #     'date': date,
-        # }
-        return render(request, "accounts/profile.html")
+        return render(request, "accounts/payment.html")
     return render(request, "accounts/payment.html")
-
-
-# def payment(request):
-#     if request.method == "POST":
-#         print(request.POST)
-#         if request.POST.get('fullname') and request.POST.get('email') and request.POST.get('mobile_number') and request.POST.get("amount"):
-#             people = Payments()
-#             people.fullname = request.POST.get('fullname')
-#             people.email = request.POST.get('email')
-#             people.mobile_number = request.POST.get('mobile_number')
-#             people.types = request.POST.get('type')
-#             people.amount = request.POST.get("amount")
-#             people.save()
-#             return render(request, "youth/sermons.html")
-#     else:
-#         return render(request, "accounts/payment.html")    
     
 
 def password_reset(request):

@@ -6,10 +6,14 @@
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/accounts/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/migrations/0002_auto_20201029_2019.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/migrations/0003_auto_20201029_2028.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/migrations/0004_auto_20201029_2115.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/migrations/0005_auto_20201029_2133.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/accounts/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/templates/accounts/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/templates/accounts/dashboard.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/accounts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newsletter/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/newsletter/migrations/0001_initial.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/youth/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/youth/migrations/0001_initial.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -89,7 +93,7 @@
       <workItem from="1603413536040" duration="1134000" />
       <workItem from="1603625974813" duration="2000000" />
       <workItem from="1603819431146" duration="2393000" />
-      <workItem from="1603879058086" duration="7351000" />
+      <workItem from="1603879058086" duration="10409000" />
     </task>
     <servers />
   </component>

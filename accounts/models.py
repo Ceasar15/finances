@@ -5,7 +5,7 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 
 class Profile(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     # additional fields
     
@@ -25,7 +25,7 @@ def save_profile(sender, instance, **kwargs):
         instance.profile.save()
     
 class Payments(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)    
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)    
     fullname= models.CharField(max_length=100, null=True)
     email= models.EmailField(max_length=110, null=True)
     mobile_number= models.CharField(null=True, max_length=15)
@@ -36,12 +36,12 @@ class Payments(models.Model):
     def __str__(self):
         return str(self.fullname)
 
-@receiver(post_save, sender=User)
-def create_payments(sender, instance, created, **kwargs):
-    if created:
-        Payments.objects.create(user=instance)
+# @receiver(post_save, sender=User)
+# def create_payments(sender, instance, created, **kwargs):
+#     if created:
+#         Payments.objects.create(user=instance)
 
-@receiver(post_save, sender=User)
-def save_profile(sender, instance, **kwargs):
-        instance.payments.save()
+# @receiver(post_save, sender=User)
+# def save_profile(sender, instance, **kwargs):
+#         instance.payments.save()
 
