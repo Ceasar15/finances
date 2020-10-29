@@ -2,22 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8fb4824b-a642-468d-bf55-b9fc8ed3e21c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/82c599e7-16ad-469a-8771-71be358c9362.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/82c599e7-16ad-469a-8771-71be358c9362.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/migrations/0002_finance.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/migrations/0003_auto_20201022_1544.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/migrations/0004_auto_20201022_1548.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/migrations/0005_auto_20201022_1601.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/migrations/0006_auto_20201022_1605.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/migrations/0007_auto_20201022_2014.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/migrations/0008_payments_user.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/migrations/0009_auto_20201027_2309.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/migrations/0010_auto_20201027_2309.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/accounts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +82,7 @@
       <workItem from="1603413536040" duration="1134000" />
       <workItem from="1603625974813" duration="2000000" />
       <workItem from="1603819431146" duration="2393000" />
-      <workItem from="1603879058086" duration="3824000" />
+      <workItem from="1603879058086" duration="4505000" />
     </task>
     <servers />
   </component>

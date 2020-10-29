@@ -65,11 +65,12 @@ def dashboard(request):
 def payment(request):
     if request.method == 'POST':
         print(request.POST)
-        pay_form = PaymentsForm(request.POST, request.FILES, instance=request.user.profile)
+        pay_form = PaymentsForm(request.POST, request.FILES)
 
         if pay_form.is_valid():
 
             pay_form.save()
+            messages.success(request, f'Your Profile has been Updated Successfully')
             return render(request, 'youth:sermons')
 
     else:
@@ -79,7 +80,8 @@ def payment(request):
         #     'pay_form': pay_form,
         #     'date': date,
         # }
-        return render(request, "accounts/payment.html")
+        return render(request, "accounts/dashboard.html")
+    return render(request, "accounts/payment.html")
 
 
 # def payment(request):
