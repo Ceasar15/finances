@@ -1,6 +1,6 @@
-from accounts.models import Payments
 from django.contrib.auth import authenticate, login as lin, logout as lout
 from django.http import request
+from django.contrib.auth import get_user_model
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
@@ -10,6 +10,7 @@ from pypaystack import Transaction
 
 
 from .forms import CustomUserCreationForm, PaymentsForm, UserProfileForm
+from accounts.models import Payments
 
 # register user
 
@@ -62,14 +63,17 @@ def dashboard(request):
     
     return render(request, "accounts/dashboard.html", content)
 
+
+@login_required
 def payment(request):
     if request.method == 'POST':
         print(request.POST)
-        pay_form = PaymentsForm(request.POST, request.FILES, request.user)
+        pay_form = PaymentsForm(request.POST, request.FILES)
 
         if pay_form.is_valid():
-            instance = pay_form.save(commit=False)
-            instance.save()
+            obj = pay_form.save(commit=False)
+            obj.user = request.user;
+            obj.save()
             messages.success(request, f'Your Profile has been Updated Successfully')
             return render(request, 'accounts/dashboard.html')
     else:
@@ -79,7 +83,7 @@ def payment(request):
         #     'pay_form': pay_form,
         #     'date': date,
         # }
-        return render(request, "accounts/payment.html")
+        return render(request, "accounts/profile.html")
     return render(request, "accounts/payment.html")
 
 
