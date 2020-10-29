@@ -65,17 +65,13 @@ def dashboard(request):
 def payment(request):
     if request.method == 'POST':
         print(request.POST)
-        pay_form = PaymentsForm(request.POST, request.FILES, instance=request.user.profile)
+        pay_form = PaymentsForm(request.POST, request.FILES, request.user)
 
         if pay_form.is_valid():
             instance = pay_form.save(commit=False)
-            
-            # if request.user.is_authenticated():
-            #     instance.user.add(request.user)
             instance.save()
             messages.success(request, f'Your Profile has been Updated Successfully')
             return render(request, 'accounts/dashboard.html')
-
     else:
         # pay_form = PaymentsForm()
         # date = Payments.scheduled_at.date()
