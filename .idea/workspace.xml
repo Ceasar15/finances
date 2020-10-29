@@ -2,8 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8fb4824b-a642-468d-bf55-b9fc8ed3e21c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/templates/accounts/payment.html" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/templates/accounts/payment.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/accounts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/youth/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/youth/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/youth/migrations/0002_post.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/youth/migrations/0003_auto_20201015_1847.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/youth/migrations/0004_post_picture.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/youth/migrations/0005_auto_20201016_1126.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +89,7 @@
       <workItem from="1603413536040" duration="1134000" />
       <workItem from="1603625974813" duration="2000000" />
       <workItem from="1603819431146" duration="2393000" />
-      <workItem from="1603879058086" duration="4505000" />
+      <workItem from="1603879058086" duration="5223000" />
     </task>
     <servers />
   </component>
