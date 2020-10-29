@@ -54,7 +54,8 @@ def profile(request):
     return render(request, "accounts/profile.html", context)
 
 @login_required
-def dashboard(request):
+def dashboard(self,request):
+    user = self.request.user
     queryset = Payments.objects.all()    
     return render(request, "accounts/dashboard.html", {'queryset': queryset})
 
