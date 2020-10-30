@@ -75,7 +75,7 @@
 						<thead>
 							<tr class="table100-head">
 								<th class="column1">Date</th>
-								<th class="column2">Receipt</th>
+								<th class="column2">Reference</th>
 								<th class="column3">Type</th>
 								<th class="column4">Amount</th>
 								<th class="column5">Paid</th>
@@ -85,62 +85,14 @@
 						<tbody>
 							{% for pay in queryset %}
 								<tr>
-									<td class="column1">2017-09-29 01:22</td>
+									<td class="column1">{{ pay.created_on }}</td>
 									<td class="column2">{{ pay.fullname }}</td>
 									<td class="column3">{{ pay.types }}</td>
-									<td class="column4">{{ pay.amount }}</td>
+									<td class="column4">GHS {{ pay.amount }}</td>
 									<td class="column5"><i class="icon-money" aria-hidden="true"></i></td>
 									<td class="column6">$999.00</td>
 								</tr>
 							{% endfor %}	
-								<tr>
-									<td class="column1">2017-09-28 05:57</td>
-									<td class="column2">200397</td>
-									<td class="column3">Special Contribution</td>
-									<td class="column4">$756.00</td>
-									<td class="column5">X</td>
-									<td class="column6">$0.00</td>
-								</tr>
-								<tr>
-									<td class="column1">2017-09-26 05:57</td>
-									<td class="column2">200396</td>
-									<td class="column3">Dues</td>
-									<td class="column4">$22.00</td>
-									<td class="column5"><i class="icon-money" aria-hidden="true"></i></td>
-									<td class="column6">$44.00</td>
-								</tr>
-								<tr>
-									<td class="column1">2017-09-25 23:06</td>
-									<td class="column2">200392</td>
-									<td class="column3">Special Contribution</td>
-									<td class="column4">$10.00</td>
-									<td class="column5"><i class="icon-money" aria-hidden="true"></i></td>
-									<td class="column6">$30.00</td>
-								</tr>
-								<tr>
-									<td class="column1">2017-09-24 05:57</td>
-									<td class="column2">200391</td>
-									<td class="column3">Dues</td>
-									<td class="column4">$199.00</td>
-									<td class="column5">X</td>
-									<td class="column6">$0.00</td>
-								</tr>
-								<tr>
-									<td class="column1">2017-09-23 05:57</td>
-									<td class="column2">200390</td>
-									<td class="column3">Special Contribution</td>
-									<td class="column4">$699.00</td>
-									<td class="column5"><i class="icon-money" aria-hidden="true"></i></td>
-									<td class="column6">$699.00</td>
-								</tr>
-           				    	<tr>
-									<td class="column1">Outstanding Debt</td>
-									<td class="column2"></td>
-									<td class="column3">$40000</td>
-									<td class="column4">Amount Paid</td>
-									<td class="column5"></td>
-									<td class="column6">$1234</td>
-								</tr>
 						</tbody>                
   				</table>
 				</div>

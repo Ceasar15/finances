@@ -36,10 +36,10 @@
                             <i class="fa fa-chevron-circle-down"></i>
                             <label for="type">Type</label>
                             <select id="type" name="types" class="input100" required>
-                                <option class="input100" value="dues" name="dues">Dues</option>
-                                <option class="input100" value="welfare" name="welfare">Welfare</option>
-                                <option class="input100" value="special" name="special">Special Contribution</option>
-                                <option class="input100" value="donation" name="donation">Donation</option>
+                                <option class="input100" value="Dues" name="dues">Dues</option>
+                                <option class="input100" value="Welfare" name="welfare">Welfare</option>
+                                <option class="input100" value="Special Contribution" name="special">Special Contribution</option>
+                                <option class="input100" value="Donation" name="donation">Donation</option>
                             </select>
                             <span class="focus-input100"></span>
                             <span class="symbol-input100"></span>
@@ -54,7 +54,7 @@
                         
                         <div class="container-login100-form-btn p-t-10">
                             <script src="https://js.paystack.co/v1/inline.js"></script>
-                            <button class="login100-form-btn" type="submit" onclick="payWithPaystack()" >Pay</button>
+                            <button class="login100-form-btn" type="button" onclick="payWithPaystack()" >Pay</button>
                         </div>
                         <div class="text-center w-full p-t-25 p-b-230">
                             <a href="{% url 'youth:index' %}" class="txt1">Home<br></a>
@@ -96,9 +96,10 @@
       },
       callback: function(response){
         ref = response.reference
+        document.getElementById("forms").button();
         window.location ="{% url 'accounts:dashboard' %}";
-          alert('Transaction was successful. Reference: ' + response.reference);
-          document.getElementById("forms").button()
+        alert('Transaction was successful. Reference: ' + response.reference);
+        
       },
       onClose: function(){
           alert('Transaction Cancelled!');
