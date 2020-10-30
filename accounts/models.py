@@ -35,6 +35,9 @@ class Payments(models.Model):
 
     def __str__(self):
         return str(self.fullname)
+    
+    class Meta:
+        ordering = ["-created_on"]
 
 # @receiver(post_save, sender=User)
 # def create_payments(sender, instance, created, **kwargs):

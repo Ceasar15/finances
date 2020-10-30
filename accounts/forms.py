@@ -84,14 +84,12 @@ class PaymentsForm(ModelForm):
     class Meta:
         model = Payments
         fields = (
-            'fullname',
-            'email',
-            'mobile_number',
-            'types',
-            'amount'
+                'fullname',
+                'email',
+                'mobile_number',
+                'types',
+                'amount'
         )
-        ordering = ['-created_on']
-
 
     def clean_phone(self):
         fullname = self.cleaned_data['fullname']
