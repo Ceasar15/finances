@@ -69,7 +69,7 @@ def payment(request):
             obj = pay_form.save(commit=False)
             obj.user = request.user
             obj.save()
-            messages.success(request, f'Your Profile has been Updated Successfully')
+            messages.success(request, f'Your Payment has been Updated Successfully')
             return render(request, 'accounts/dashboard.html')
     else:
         return render(request, "accounts/payment.html")

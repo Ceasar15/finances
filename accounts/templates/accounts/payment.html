@@ -96,8 +96,8 @@
       },
       callback: function(response){
         ref = response.reference
-        document.getElementById("forms").button();
-        window.location ="{% url 'accounts:dashboard' %}";
+        // window.location ="{% url 'accounts:dashboard' %}";
+        document.getElementById("forms").submit();
         alert('Transaction was successful. Reference: ' + response.reference);
         
       },
