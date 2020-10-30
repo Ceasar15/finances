@@ -1,13 +1,8 @@
 from django.contrib.auth import authenticate, login as lin, logout as lout
 from django.http import request
-from django.contrib.auth import get_user_model
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
-from django.conf import settings
 from django.contrib import messages
-from django.http import HttpResponse
-from pypaystack import Transaction
-
 
 from .forms import CustomUserCreationForm, PaymentsForm, UserProfileForm
 from accounts.models import Payments
@@ -70,24 +65,24 @@ def payment(request):
             obj.user = request.user
             obj.save()
             messages.success(request, f'Your Payment has been Updated Successfully')
-            return render(request, 'accounts/dashboard.html')
+            return redirect('accounts:dashboard')
     else:
         return render(request, "accounts/payment.html")
     return render(request, "accounts/payment.html")
     
 
-def password_reset(request):
-    return render(request, "accounts/password_reset_form.html")
+# def password_reset(request):
+#     return render(request, "accounts/password_reset_form.html")
 
 def logout(request):
     lout(request)
     return redirect('youth:index')
 
-def verify(request, reference):
-    transaction = Transaction(settings.PAYSTACK_SECRET_KEY)
-    response = transaction.verify(reference)
-    if response[3]['status'] == 'success':
-        return render(request, 'donations.html')
-    else:
-        return HttpResponse('failed')
+# def verify(request, reference):
+#     transaction = Transaction(settings.PAYSTACK_SECRET_KEY)
+#     response = transaction.verify(reference)
+#     if response[3]['status'] == 'success':
+#         return render(request, 'donations.html')
+#     else:
+#         return HttpResponse('failed')
 
