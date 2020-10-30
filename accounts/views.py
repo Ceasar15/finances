@@ -50,8 +50,15 @@ def profile(request):
 
 @login_required
 def dashboard(request):
-    queryset = Payments.objects.filter(user=request.user)    
-    return render(request, "accounts/dashboard.html", {'queryset': queryset})
+    queryset = Payments.objects.filter(user=request.user)
+    total = 0
+    for pay in queryset:
+        total += pay.amount    
+    context = {
+        'queryset': queryset,
+        'total': total
+    }
+    return render(request, "accounts/dashboard.html", context)
 
 
 @login_required

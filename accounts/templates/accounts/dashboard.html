@@ -90,11 +90,33 @@
 									<td class="column3">{{ pay.types }}</td>
 									<td class="column4">GHS {{ pay.amount }}</td>
 									<td class="column5"><i class="icon-money" aria-hidden="true"></i></td>
-									<td class="column6">$999.00</td>
+									<td class="column6">{{ total }}</td>
 								</tr>
 							{% endfor %}	
 						</tbody>                
-  				</table>
+				  </table>
+				  <table>
+					<thead>
+						<tr class="table100-head">
+							<th class="column1"></th>
+							<th class="column2"><strong> Total2 </strong></th>
+							<th class="column3"></th>
+							<th class="column4"></th>
+							<th class="column5"><strong> GHS {{ total }}</strong></th>
+							<th class="column6"></th>
+						</tr>
+					</thead>
+					<tbody>
+							<tr>
+								<td class="column1"></td>
+								<td class="column2">TOTAL</td>
+								<td class="column3"></td>
+								<td class="column4"><strong> GHS {{ total }}</strong></td>
+								<td class="column5"></td>
+								<td class="column6"></td>
+							</tr>
+					</tbody>                
+			  </table>
 				</div>
 			</div>
 		</div>
