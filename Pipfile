@@ -21,7 +21,6 @@ python-dotenv = "*"
 Pipfile = "*"
 psycopg2-binary = "*"
 django-cleanup = "*"
-pypaystack = "*"
 google-cloud-storage = "*"
 django-storages = "*"
 
