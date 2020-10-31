@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "15da49177be9fce6342e79d9225452517a24ccce68e42f9f521516089c48ceee"
+            "sha256": "15f4f0e7faaab9d0ba1320de87499faa52b276c121b9827d2cd81d1b263c19ba"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -392,13 +392,6 @@
                 "sha256:7582ad22678f0fcd81102833f60ef8d0e57288b6b5fb00323d101be910e35705"
             ],
             "version": "==2.20"
-        },
-        "pypaystack": {
-            "hashes": [
-                "sha256:92624093ca3ca4b49c05144896ed977d2205cc2ce998f99767c8c66bf76e326b"
-            ],
-            "index": "pypi",
-            "version": "==1.23"
         },
         "python-card-me": {
             "hashes": [
