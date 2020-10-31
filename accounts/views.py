@@ -53,20 +53,15 @@ def profile(request):
 @login_required
 def dashboard(request):
     queryset = Payments.objects.filter(user=request.user)
-    totals = 0
+    total = 0
     for pay2 in queryset:
-        totals += pay2.amount
+        total += pay2.amount
     
     context = {
         'queryset': queryset,
-        'total': totals,
+        'total': total,
     }
     return render(request, "accounts/dashboard.html", context)
-
-# @login_required
-# class DashboardView(TemplateView):
-#     queryset = Payments.objects.filter(user=request.user)
-#     template_name = "accounts/dashboard.html"
 
 @login_required
 def payment(request):

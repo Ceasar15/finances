@@ -85,7 +85,6 @@
                 <li><a href="{% url 'youth:contact' %}" class="py-2 d-block">Contact</a></li>
                 {% if user.is_authenticated %}
                 <li><a href="{% url 'accounts:dashboard' %}" class="py-2 d-block">Finances</a></li>
-                <li><a href="{% url 'accounts:logout' %}" class="py-2 d-block">Log Out</a></li>
                 {% endif %}
               </ul>
             </div>

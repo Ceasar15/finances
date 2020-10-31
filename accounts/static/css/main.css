@@ -768,7 +768,7 @@ tbody tr:hover {
         content: "Paid";
     }
     table tbody tr td:nth-child(6):before {
-        content: "Total";
+        content: "";
     }
     .column4,
     .column5,
