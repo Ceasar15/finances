@@ -201,26 +201,3 @@ PAYSTACK_SECRET_KEY='sk_test_179c54296313be479b21361328d7ac31316d1245'
 
 # Cache Settings
 
-
-servers = 'mc5.dev.ec2.memcachier.com:11211'
-username = 'B70EC0'
-password = '7505F1A6662C0362207CC3ED4A55919E'
-
-CACHES = {
-    'default': {
-        # Use django-bmemcached
-        'BACKEND': 'django_bmemcached.memcached.BMemcached',
-
-        # TIMEOUT is not the connection timeout! It's the default expiration
-        # timeout that should be applied to keys! Setting it to `None`
-        # disables expiration.
-        'TIMEOUT': None,
-
-        'LOCATION': servers,
-
-        'OPTIONS': {
-            'username': username,
-            'password': password,
-        }
-    }
-}
