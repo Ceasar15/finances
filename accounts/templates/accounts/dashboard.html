@@ -15,57 +15,7 @@
         </div>
       </div>
 		</section>
-
-          {% comment %} <div class="col-md-12 col-lg-8 mb-5">
-              <form action="" class="p-5 bg-white" method="post" >
-                <div class="row form-group">
-                    <div class="col-md-12 mb-3 mb-md-0">
-                        <label class="font-weight-bold" for="fullname">Full Name</label>
-                        <input type="text" id="fullname" name="fullname" class="form-control" placeholder="Full Name" required>
-                    </div>
-                </div>
-
-                <div class="row form-group">
-                    <div class="col-md-12">
-                        <label class="font-weight-bold" for="email">Email</label>
-                        <input type="email" id="email" name="email" class="form-control" placeholder="Email Address" required>
-                    </div>
-                </div>
-
-                <div class="row form-group">
-                    <div class="col-md-12 mb-3 mb-md-0">
-                        <label class="font-weight-bold" for="mobile_number">Mobile Number</label>
-                        <input type="text" id="mobile_number" name="mobile_number" class="form-control" placeholder="Mobile Number" required>
-                    </div>
-                </div>
-
-                <div class="row form-group">
-                    <div class="col-md-12 mb-3 mb-md-0">
-                        <label class="font-weight-bold" for="type">Type</label>
-                        <select id="type" name="type" class="form-control" required>
-                          <option value="dues" name="dues">Dues</option>
-                          <option value="welfare" name="welfare">Welfare</option>
-                          <option value="special" name="special">Special Contribution</option>
-                          <option value="donation" name="donation">Donation</option>
-                        </select>
-                    </div>
-                </div>                
-
-                <div class="row form-group">
-                    <div class="col-md-12 mb-3 mb-md-0">
-                        <label class="font-weight-bold" for="amount">Amount</label>
-                        <input type="number" id="amount" name="amount" class="form-control" placeholder="Amount eg. 100" required>
-                    </div>
-                </div>
-                  <div class="row form-group">
-                    <div class="col-md-12">
-                        <script src="https://js.paystack.co/v1/inline.js"></script>
-                        <button  type="submit" onclick="payWithPaystack()" class="btn btn-primary pill px-4 py-2"> Pay </button>
-                    </div>
-                  </div>
-              </form>
-          </div> {% endcomment %}
-
+		
 	<div class="limiter">
 		<div class="container-table100">
 			<div class="wrap-table100">
@@ -79,7 +29,7 @@
 								<th class="column3">Type</th>
 								<th class="column4">Amount</th>
 								<th class="column5">Paid</th>
-								<th class="column6">Total</th>
+								<th class="column6"></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -90,7 +40,6 @@
 									<td class="column3">{{ pay.types }}</td>
 									<td class="column4">GHS {{ pay.amount }}</td>
 									<td class="column5"><i class="icon-money" aria-hidden="true"></i></td>
-									<td class="column6">{{ total }}</td>
 								</tr>
 							{% endfor %}	
 						</tbody>                
