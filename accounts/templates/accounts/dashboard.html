@@ -15,7 +15,7 @@
         </div>
       </div>
 		</section>
-		
+
 	<div class="limiter">
 		<div class="container-table100">
 			<div class="wrap-table100">
@@ -29,7 +29,7 @@
 								<th class="column3">Type</th>
 								<th class="column4">Amount</th>
 								<th class="column5">Paid</th>
-								<th class="column6"></th>
+								<th class="column6">Total</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -40,6 +40,7 @@
 									<td class="column3">{{ pay.types }}</td>
 									<td class="column4">GHS {{ pay.amount }}</td>
 									<td class="column5"><i class="icon-money" aria-hidden="true"></i></td>
+									<td class="column6">GHS {{ totals }}</td>
 								</tr>
 							{% endfor %}	
 						</tbody>                
@@ -51,7 +52,7 @@
 							<th class="column2"><strong> Total2 </strong></th>
 							<th class="column3"></th>
 							<th class="column4"></th>
-							<th class="column5"><strong> GHS {{ total }}</strong></th>
+							<th class="column5"><strong> GHS {{ totals }}</strong></th>
 							<th class="column6"></th>
 						</tr>
 					</thead>

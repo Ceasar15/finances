@@ -7,6 +7,7 @@ app_name = 'accounts'
 urlpatterns = [
     url(r'^register/$', register, name='register'),
     url(r"^dashboard/", dashboard, name="dashboard"),
+    #url(r"^dashboard/", DashboardView.as_view(), name="dashboard"),
     url(r"^payment/", payment, name="payment"),
     url(r"^profile/", profile, name="profile"),
     url(r"^", include("django.contrib.auth.urls")),

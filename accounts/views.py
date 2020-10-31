@@ -3,6 +3,8 @@ from django.http import request
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.views import generic
+from django.views.generic.base import TemplateView
 
 from .forms import CustomUserCreationForm, PaymentsForm, UserProfileForm
 from accounts.models import Payments
@@ -51,15 +53,20 @@ def profile(request):
 @login_required
 def dashboard(request):
     queryset = Payments.objects.filter(user=request.user)
-    total = 0
-    for pay in queryset:
-        total += pay.amount    
+    totals = 0
+    for pay2 in queryset:
+        totals += pay2.amount
+    
     context = {
         'queryset': queryset,
-        'total': total
+        'total': totals,
     }
     return render(request, "accounts/dashboard.html", context)
 
+# @login_required
+# class DashboardView(TemplateView):
+#     queryset = Payments.objects.filter(user=request.user)
+#     template_name = "accounts/dashboard.html"
 
 @login_required
 def payment(request):
@@ -77,9 +84,6 @@ def payment(request):
         return render(request, "accounts/payment.html")
     return render(request, "accounts/payment.html")
     
-
-# def password_reset(request):
-#     return render(request, "accounts/password_reset_form.html")
 
 def logout(request):
     lout(request)
