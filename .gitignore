@@ -150,8 +150,10 @@ cython_debug/
 *.pyo
 *.db
 *.egg-info
+..idea/
 .idea/
 .DS_Store.env
 
 media/
+..vscode/
 .vscode/
