@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8fb4824b-a642-468d-bf55-b9fc8ed3e21c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Pipfile" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +81,7 @@
       <workItem from="1603413536040" duration="1134000" />
       <workItem from="1603625974813" duration="2000000" />
       <workItem from="1603819431146" duration="2393000" />
-      <workItem from="1603879058086" duration="18960000" />
+      <workItem from="1603879058086" duration="19568000" />
     </task>
     <servers />
   </component>
