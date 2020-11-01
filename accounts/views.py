@@ -63,6 +63,9 @@ def dashboard(request):
     }
     return render(request, "accounts/dashboard.html", context)
 
+def donations(request):
+    return render(request, "accounts/donations.html")
+
 @login_required
 def payment(request):
     if request.method == 'POST':

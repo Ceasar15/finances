@@ -1,13 +1,14 @@
+from os import name
 from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls import url, include
-from .views import dashboard, profile, register, payment
+from .views import dashboard, profile, register, payment, donations
 
 app_name = 'accounts'
 urlpatterns = [
     url(r'^register/$', register, name='register'),
     url(r"^dashboard/", dashboard, name="dashboard"),
-    #url(r"^dashboard/", DashboardView.as_view(), name="dashboard"),
+    url(r"^donations/", donations, name="donations"),
     url(r"^payment/", payment, name="payment"),
     url(r"^profile/", profile, name="profile"),
     url(r"^", include("django.contrib.auth.urls")),

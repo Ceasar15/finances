@@ -80,7 +80,7 @@
               <ul class="list-unstyled">
                 <li><a href="{% url 'youth:index' %}" class="py-2 d-block">Home</a></li>
                 <li><a href="{% url 'youth:blog' %}" class="py-2 d-block">Blogs</a></li>
-                <li><a href="{% url 'accounts:payment' %}" class="py-2 d-block">Donations</a></li>
+                <li><a href="{% url 'accounts:donations' %}" class="py-2 d-block">Donations</a></li>
                 <li><a href="{% url 'youth:events' %}" class="py-2 d-block">Events</a></li>
                 <li><a href="{% url 'youth:contact' %}" class="py-2 d-block">Contact</a></li>
                 {% if user.is_authenticated %}
