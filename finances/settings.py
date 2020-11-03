@@ -8,6 +8,8 @@ import dotenv
 #BASE_DIR = Path(__file__).resolve().parent.parent
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'youth/static/js', 'serviceworker.js')
+
 dotenv_file = os.path.join(BASE_DIR, ".env")
 if os.path.isfile(dotenv_file):
     dotenv.load_dotenv(dotenv_file)
@@ -43,6 +45,7 @@ INSTALLED_APPS = [
     # newsletter apps
     'sorl.thumbnail',
     'newsletter',
+    'pwa',
 
     # cleanup old pics after user changes them
     'django_cleanup.apps.CleanupConfig',

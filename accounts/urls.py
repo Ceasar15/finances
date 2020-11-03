@@ -2,6 +2,7 @@ from os import name
 from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls import url, include
+from django.urls.conf import path
 from .views import dashboard, profile, register, payment, donations
 
 app_name = 'accounts'
