@@ -10,6 +10,7 @@ self.addEventListener('install', function(event) {
         'youth/events',
         'youth/contact',
         'youth/about',
+        'youth/blog_detail',
       ]);
     })
   );
@@ -23,7 +24,8 @@ self.addEventListener('fetch', function(event) {
         'youth/sermons',
         'youth/events',
         'youth/contact',
-        'youth/about',));
+        'youth/about',
+        'youth/blog_detail',));
         return;
       }
     }

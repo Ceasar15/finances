@@ -156,6 +156,14 @@ LOGOUT_REDIRECT_URL = "youth:index"
 # Email settings
 
 
+
+    # Home
+    # About
+    # Events
+    # Sermons
+    # Hello, Guest!
+
+
 # django.contrib.sites settings
 SITE_ID = 1 
 
