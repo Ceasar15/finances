@@ -9,9 +9,9 @@ import youth.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('youth/',include("youth.urls")),
-    path('',include('pwa.urls')),
+    path('',include("youth.urls")),
     path('', youth.views.index, name='home'),
+    path('',include('pwa.urls')),
 #    path('/', youth.views.index, name='home'),
     path('home/', youth.views.index),
     path('accounts/', include("accounts.urls")),
