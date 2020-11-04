@@ -1,0 +1,19 @@
+{
+    "name": "Shalom 1",
+    "short_name": "shaaaalom1",
+    "start_url": "/",
+    "scope": ".",
+    "display": "standalone",
+    "background_color": "#FFF",
+    "theme_color": "#493174",
+    "description": "Test app for GEC SHALOM ONE",
+    "dir": "ltr",
+    "lang": "en-US",
+    "orientation": "portrait-primary",
+    "icons": [{
+        "src": "/static/images/cross.png",
+        "type": "image/png",
+        "sizes": "96x96"
+    }
+]
+}
