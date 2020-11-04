@@ -23,6 +23,7 @@ psycopg2-binary = "*"
 django-cleanup = "*"
 google-cloud-storage = "*"
 django-storages = "*"
+django-progressive-web-app = "*"
 
 [dev-packages]
 
