@@ -12,6 +12,7 @@ urlpatterns = [
     path('youth/',include("youth.urls")),
     path('',include('pwa.urls')),
     path('', youth.views.index, name='home'),
+#    path('/', youth.views.index, name='home'),
     path('home/', youth.views.index),
     path('accounts/', include("accounts.urls")),
     path('newsletter/', include('newsletter.urls')),
