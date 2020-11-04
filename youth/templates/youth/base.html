@@ -3,16 +3,17 @@
 <html lang="en">
 {% load pwa %}
 {% load static %}
-  
+<!-- PWA meta tags -->
+{% progressive_web_app_meta %}
+<link rel="manifest" href="/manifest.json">
+<!-- <link rel="manifest" href="/manifest.webmanifest">   -->
 <head>
-  <!-- PWA meta tags -->
-    {% progressive_web_app_meta %}
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#493174">
-    <link rel="apple-touch-icon" href="{% static 'images/cross.png' %}">
+    <!-- <meta name="theme-color" content="#493174">
+    <link rel="apple-touch-icon" href="{% static 'images/cross.png' %}"> -->
     <title>{% block title %}{% endblock %} | Youth</title>
     <!-- plugins:css -->
     <link rel="icon" type="image/x-icon" sizes="16x16" href = "{% static 'images/cross.png' %}">
