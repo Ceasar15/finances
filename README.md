@@ -23,18 +23,18 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-
 ## Preview
 You can access the live application here.
 [Live Preview](http://gecyouthchurch.herokuapp.com/)
 
-## Visuals
 
-```image 1
-![Screenshot](screenshot.png)
-![plot](./directory_1/directory_2/.../directory_n/plot.png)
-![Alt text](relative/path/to/img.jpg?raw=true "Title")
-```
+## Visuals
+![Home Page ](https://user-images.githubusercontent.com/42820626/156560829-4c49807a-2487-466c-b619-d0f23756f9bf.png)
+![Sermons Page](https://user-images.githubusercontent.com/42820626/156554177-f38cca7a-6058-4813-a280-e9e1156e0f81.png)
+![Achievements Page](https://user-images.githubusercontent.com/42820626/156554134-661943e0-a607-4be3-90bc-2f3329ecea76.png)
+![Achievements Page](https://user-images.githubusercontent.com/42820626/156554084-080d0447-3d2f-4e78-ad41-554cba39bcd8.png)
+![Achievements Page](https://user-images.githubusercontent.com/42820626/156554062-32085e26-dc3e-4199-82ff-3e2d80c65479.png)
+
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
