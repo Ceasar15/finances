@@ -21,6 +21,11 @@ python manage.py migrate
 python manage.py runserver
 ```
 
+
+## Preview
+You can access the live application here.
+[Live Preview](http://gecyouthchurch.herokuapp.com/)
+
 ## Visuals
 
 ```image 1
