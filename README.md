@@ -3,6 +3,8 @@ Typically, a personal finance app will have different features such as a shared 
 
 This Finances Application is a church management web application that keeps track of donations, welfare, offerings among other financial obligations. It showcases sermons and announcement from leadership. Admin can add upcoming events and programs. Members can comment on sermon posts. Paystacks payment api was integrated into the application code.
 
+This is was built with Python, Django, HTML5, CSS3, PostgreSQL, PaystackAPI
+
 ## Installation
 
 Clone the repository, run the virtual environment and install all requirements.
